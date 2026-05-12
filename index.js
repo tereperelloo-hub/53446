@@ -1,7 +1,6 @@
-import CalculatorLexer from "./generated/CalculatorLexer.js";
-import CalculatorParser from "./generated/CalculatorParser.js";
-import { CustomCalculatorListener } from "./CustomCalculatorListener.js";
-import { CustomCalculatorVisitor } from "./CustomCalculatorVisitor.js";
+import tableroLexer from "./generated/tableroLexer.js";
+import tableroParser from "./generated/tableroParser.js";
+import CustomTableroVisitor from "./CustomTableroVisitor.js";
 import antlr4, { CharStreams, CommonTokenStream, ParseTreeWalker } from "antlr4";
 import readline from 'readline';
 import fs from 'fs';
@@ -20,10 +19,23 @@ async function main() {
 
     // Proceso la entrada con el analizador e imprimo el arbol de analisis en formato texto
     let inputStream = CharStreams.fromString(input);
-    let lexer = new CalculatorLexer(inputStream);
+    let lexer = new tableroLexer(inputStream);
+
+    lexer.reset();
+let token = lexer.nextToken();
+
+console.log("\nTabla de tokens:");
+
+while (token.type !== -1) { // -1 = EOF
+    console.log(`Token: ${token.text} -> Tipo: ${token.type}`);
+    token = lexer.nextToken();
+}
+
+lexer.reset(); // importante para que el parser funcione después
+
     let tokenStream = new CommonTokenStream(lexer);
-    let parser = new CalculatorParser(tokenStream);
-    let tree = parser.prog();
+    let parser = new tableroParser(tokenStream);
+    let tree = parser.programa();
     
     // Verifico si se produjeron errores
     if (parser.syntaxErrorsCount > 0) {
@@ -34,12 +46,8 @@ async function main() {
         const cadena_tree = tree.toStringTree(parser.ruleNames);
         console.log(`Árbol de derivación: ${cadena_tree}`);
 
-        // Utilizo un listener y un walker para recorrer el arbol e indicar cada vez que reconoce una sentencia (stat)
-        //const listener = new CustomCalculatorListener();
-        // ParseTreeWalker.DEFAULT.walk(listener, tree);
-
-        // Utilizo un visitor para visitar los nodos que me interesan de mi arbol
-        const visitor = new CustomCalculatorVisitor();
+        
+        const visitor = new CustomTableroVisitor();
         visitor.visit(tree);   
     }
 }
