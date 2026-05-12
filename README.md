@@ -4,6 +4,7 @@ Este proyecto es un analizador sintáctico hecho con ANTLR4 y JavaScript.
 Sirve para reconocer un lenguaje simple donde se pueden definir tableros con fuentes de datos.
 
 Requisitos
+
 - Node.js
 - Java
 
@@ -11,7 +12,7 @@ Cómo usarlo
 
 Primero clonar el repositorio:
 
-git clone https://github.com/TU_USUARIO/TU_REPO.git
+git clone https://github.com/tereperelloo-hub/53446
 
 Después instalar dependencias:
 
@@ -22,15 +23,6 @@ Y para ejecutarlo:
 npm start
 
 El programa lee lo que está en el archivo `input.txt`.
-
-Ejemplos
-
-En la carpeta `ejemplos/` hay:
-
-- 2 ejemplos correctos
-- 2 ejemplos con errores
-
-Para probarlos, copiar el contenido de alguno en `input.txt` y ejecutar el programa.
 
 Qué hace el programa
 

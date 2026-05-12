@@ -1,5 +1,5 @@
-import tableroLexer from "./generated/tableroLexer.js";
-import tableroParser from "./generated/tableroParser.js";
+import tableroLexer from "../generated/tableroLexer.js";
+import tableroParser from "../generated/tableroParser.js";
 import CustomTableroVisitor from "./CustomTableroVisitor.js";
 import antlr4, { CharStreams, CommonTokenStream, ParseTreeWalker } from "antlr4";
 import readline from 'readline';

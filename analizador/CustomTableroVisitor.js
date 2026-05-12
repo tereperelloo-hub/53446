@@ -1,4 +1,4 @@
-import tableroVisitor from "./generated/tableroVisitor.js";
+import tableroVisitor from "../generated/tableroVisitor.js";
 
 export default class CustomTableroVisitor extends tableroVisitor {
 

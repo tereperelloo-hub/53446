@@ -1,0 +1,3 @@
+tablero Ventas {
+  fuente ventas tipo csv ruta "datos.csv"
+}
