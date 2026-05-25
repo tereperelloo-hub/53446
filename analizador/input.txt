@@ -1,5 +1,4 @@
-tablero Ventas {
-  fuente ventas tipo ruta "datos.csv";
+tablero Prueba {
+  fuente datos tipo csv ruta "archivo.csv";
 }
-
 
