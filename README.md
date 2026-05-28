@@ -20,8 +20,7 @@ npm install
 
 Y para ejecutarlo:
 
-A mi me funciona al poner primero 
-cd analizador y luego npm start
+npm start
 
 
 El programa lee lo que está en el archivo `input.txt`.
